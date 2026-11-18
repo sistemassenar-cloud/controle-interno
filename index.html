@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Controle Interno | SENAR-AR/MA</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: #f4f7fa; overflow: hidden; }
+  iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; }
+</style>
+</head>
+<body>
+<iframe id="app"
+  src="https://script.google.com/macros/s/AKfycbxI_QsLMnHnnFt-R4L6FsFEps2qDcOs4r2w0e-GBYWL6Nafy7xOiwgnswscYMwTtQQCIg/exec"
+  title="Controle Interno SENAR-AR/MA"
+  allow="clipboard-write; fullscreen"
+  allowfullscreen></iframe>
+<script>
+  // Repassa ao sistema os parâmetros do endereço (?app=m1&t=...), para que cada módulo
+  // abra em tela cheia, por este mesmo site, já identificando o usuário logado.
+  (function () {
+    var f = document.getElementById('app');
+    var q = window.location.search || '';
+    if (q) {
+      var base = f.getAttribute('src').split('?')[0];
+      f.src = base + q;
+      var m = /[?&]app=(m[1-9])/i.exec(q);
+      var nomes = { m1: 'Controle de Pagamentos', m2: 'Gestão PTCI', m3: 'Normas Institucionais' };
+      if (m && nomes[m[1].toLowerCase()]) document.title = nomes[m[1].toLowerCase()] + ' | SENAR-AR/MA';
+    }
+  })();
+</script>
+<noscript>Ative o JavaScript para abrir o sistema.</noscript>
+</body>
+</html>
